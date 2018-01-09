@@ -3,9 +3,13 @@
     <string name="alert_dialog">AlertDialog</string>
     <string name="custom_dialog_by_alert_dialog">Custom Dialog(AlertDialog)</string>
     <string name="custom_dialog_by_activity">Custom Dialog(Activity)</string>
+    <string name="popup_window">Popup Window</string>
     <string name="title">Hi</string>
     <string name="message">How are you?</string>
     <string name="good">Good</string>
     <string name="bad">Bad</string>
     <string name="fine">Fine</string>
+    <string name="share">Share</string>
+    <string name="look">Look</string>
+    <string name="comment">Comment</string>
 </resources>

@@ -15,4 +15,9 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:padding">10dp</item>
     </style>
+
+    <style name="AppTheme.PopWindowDefault">
+        <item name="android:windowEnterAnimation">@anim/popup_window_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_window_exit</item>
+    </style>
 </resources>
