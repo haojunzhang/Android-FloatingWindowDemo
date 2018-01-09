@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FloatingWindowDemo</string>
+    <string name="alert_dialog">AlertDialog</string>
+    <string name="custom_alert_dialog">Custom AlertDialog</string>
+    <string name="title">Hi</string>
+    <string name="message">How are you?</string>
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
+    <string name="fine">Fine</string>
 </resources>

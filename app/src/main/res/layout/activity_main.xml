@@ -4,5 +4,25 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv_alert_dialog"
+            style="@style/AppTheme.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alert_dialog" />
+
+        <TextView
+            android:id="@+id/tv_custom_alert_dialog"
+            style="@style/AppTheme.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/custom_alert_dialog" />
+    </LinearLayout>
 </RelativeLayout>
