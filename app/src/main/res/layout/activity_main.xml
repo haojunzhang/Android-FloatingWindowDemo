@@ -18,11 +18,19 @@
             android:text="@string/alert_dialog" />
 
         <TextView
-            android:id="@+id/tv_custom_alert_dialog"
+            android:id="@+id/tv_custom_dialog_by_alert_dialog"
             style="@style/AppTheme.TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/custom_dialog_by_alert_dialog" />
+
+        <TextView
+            android:id="@+id/tv_custom_dialog_by_activity"
+            style="@style/AppTheme.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/custom_dialog_by_activity" />
     </LinearLayout>
 </RelativeLayout>

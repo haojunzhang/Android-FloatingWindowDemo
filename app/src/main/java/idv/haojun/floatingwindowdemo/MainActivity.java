@@ -2,6 +2,7 @@ package idv.haojun.floatingwindowdemo;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.tv_alert_dialog).setOnClickListener(this);
-        findViewById(R.id.tv_custom_alert_dialog).setOnClickListener(this);
+        findViewById(R.id.tv_custom_dialog_by_alert_dialog).setOnClickListener(this);
+        findViewById(R.id.tv_custom_dialog_by_activity).setOnClickListener(this);
     }
 
     @Override
@@ -25,8 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_alert_dialog:
                 alertDialog();
                 break;
-            case R.id.tv_custom_alert_dialog:
+            case R.id.tv_custom_dialog_by_alert_dialog:
                 customDialogByAlertDialog();
+                break;
+            case R.id.tv_custom_dialog_by_activity:
+                startActivity(new Intent(this, CustomDialogActivity.class));
                 break;
         }
     }
