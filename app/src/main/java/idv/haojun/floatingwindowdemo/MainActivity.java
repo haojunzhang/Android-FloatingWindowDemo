@@ -1,9 +1,11 @@
 package idv.haojun.floatingwindowdemo;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 alertDialog();
                 break;
             case R.id.tv_custom_alert_dialog:
-                customAlertDialog();
+                customDialogByAlertDialog();
                 break;
         }
     }
@@ -39,8 +41,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .show();
     }
 
-    private void customAlertDialog() {
+    private void customDialogByAlertDialog() {
+        @SuppressLint("InflateParams") final View v = LayoutInflater.from(this).inflate(R.layout.custom_dialog_by_alert_dialog, null);
+        final AlertDialog ad = new AlertDialog.Builder(this)
+                .setView(v)
+                .show();
 
+        v.findViewById(R.id.iv_custom_dialog_by_alert_dialog_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ad != null)
+                    ad.dismiss();
+            }
+        });
+
+        v.findViewById(R.id.tv_custom_dialog_by_alert_dialog_good).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ad != null)
+                    ad.dismiss();
+            }
+        });
+
+        v.findViewById(R.id.tv_custom_dialog_by_alert_dialog_bad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ad != null)
+                    ad.dismiss();
+            }
+        });
     }
 
 

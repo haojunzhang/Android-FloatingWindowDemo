@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FloatingWindowDemo</string>
     <string name="alert_dialog">AlertDialog</string>
-    <string name="custom_alert_dialog">Custom AlertDialog</string>
+    <string name="custom_dialog_by_alert_dialog">Custom Dialog(AlertDialog)</string>
     <string name="title">Hi</string>
     <string name="message">How are you?</string>
     <string name="good">Good</string>
