@@ -12,4 +12,5 @@
     <string name="share">Share</string>
     <string name="look">Look</string>
     <string name="comment">Comment</string>
+    <string name="floating_window">Floating Window</string>
 </resources>

@@ -3,6 +3,9 @@ package idv.haojun.floatingwindowdemo;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.tv_custom_dialog_by_alert_dialog).setOnClickListener(this);
         findViewById(R.id.tv_custom_dialog_by_activity).setOnClickListener(this);
         findViewById(R.id.tv_popup_window).setOnClickListener(this);
+        findViewById(R.id.tv_floating_window).setOnClickListener(this);
+
     }
 
     @Override
@@ -38,7 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, CustomDialogActivity.class));
                 break;
             case R.id.tv_popup_window:
-                popupWindow(v);
+                popupWindow();
+                break;
+            case R.id.tv_floating_window:
+                checkDrawOverlayPermission();
                 break;
         }
     }
@@ -84,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void popupWindow(View clickView) {
+    private void popupWindow() {
         final View v = LayoutInflater.from(this).inflate(R.layout.popup_window, null);
         final PopupWindow popupWindow = new PopupWindow(v, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         v.findViewById(R.id.ll_popup_window_share).setOnClickListener(new View.OnClickListener() {
@@ -112,4 +121,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         popupWindow.showAtLocation(findViewById(R.id.rl_main), Gravity.CENTER, 0, 0);
     }
 
+    public final static int Overlay_REQUEST_CODE = 251;
+    public void checkDrawOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, Overlay_REQUEST_CODE);
+            } else {
+                openFloatingWindow();
+            }
+        } else {
+            openFloatingWindow();
+        }
+    }
+
+    private void openFloatingWindow() {
+        Intent intent = new Intent(this, FloatingWindow.class);
+        stopService(intent);
+        startService(intent);
+    }
 }

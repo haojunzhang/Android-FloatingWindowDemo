@@ -41,5 +41,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/popup_window" />
+
+        <TextView
+            android:id="@+id/tv_floating_window"
+            style="@style/AppTheme.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/floating_window" />
     </LinearLayout>
 </RelativeLayout>
