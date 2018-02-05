@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.tv_alert_dialog).setOnClickListener(this);
         findViewById(R.id.tv_custom_dialog_by_alert_dialog).setOnClickListener(this);
+        findViewById(R.id.tv_custom_dialog_ios).setOnClickListener(this);
         findViewById(R.id.tv_custom_dialog_by_activity).setOnClickListener(this);
         findViewById(R.id.tv_popup_window).setOnClickListener(this);
         findViewById(R.id.tv_floating_window).setOnClickListener(this);
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tv_custom_dialog_by_alert_dialog:
                 customDialogByAlertDialog();
+                break;
+            case R.id.tv_custom_dialog_ios:
+                customDialogIOS();
                 break;
             case R.id.tv_custom_dialog_by_activity:
                 startActivity(new Intent(this, CustomDialogActivity.class));
@@ -93,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    private void customDialogIOS() {
+        new IOSAlertDialog(this).show();
+    }
+
     private void popupWindow() {
         final View v = LayoutInflater.from(this).inflate(R.layout.popup_window, null);
         final PopupWindow popupWindow = new PopupWindow(v, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -122,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public final static int Overlay_REQUEST_CODE = 251;
+
     public void checkDrawOverlayPermission() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
