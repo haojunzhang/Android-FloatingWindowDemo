@@ -16,3 +16,7 @@
 
 ![s4](screenshot/s4.png)
 
+* CustomDialog(iOS)
+
+![s5](screenshot/s5.png)
+
