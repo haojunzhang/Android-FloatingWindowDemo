@@ -98,7 +98,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void customDialogIOS() {
-        new IOSAlertDialog(this).show();
+        new MyiOSAlertDialog.Builder(this)
+                .setTitle("iOS")
+                .setMessage("message")
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 
     private void popupWindow() {
